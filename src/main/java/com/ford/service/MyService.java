@@ -1,2 +1,7 @@
-package com.Ford.Service;public class MyService {
+package com.ford.service;
+
+public class MyService
+{
+
+
 }

@@ -1,39 +1,71 @@
-package com.Ford.Controller;
+package com.ford.controller;
 
 import java.util.*;
-import com.Ford.Model.VehicleEntity;
-import com.Ford.Repository.VehicleRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.ford.model.vehicleEntity;
+import com.ford.repository.VehicleRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class VehicleController {
-    @Autowired
+
     private VehicleRepo vRepo;
+
+    public VehicleController(VehicleRepo vRepo) {
+        this.vRepo = vRepo;
+    }
+
+    //这里的error handling怎么写？
 
     //Q1: Post vehicle information
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public VehicleEntity createVehicle(@RequestBody VehicleEntity vehicle)
+//    public vehicleEntity postVehicle(@RequestBody vehicleEntity[] vehicle)
+    public vehicleEntity postVehicle(@RequestBody vehicleEntity vehicle)
     {
-        System.out.println(vehicle);
+        //如何按照data set处理这里的输入？
+        //for(vehicleEntity v: vehicle)
+        //    vRepo.save(v);
 
         return vRepo.save(vehicle);
+//        return null;
     }
 
 
+    //Q2: Retrieve all entities from database
     //这里可以使用Pageable技术优化结果？
-    @ResponseStatus(HttpStatus.FOUND)
-    @RequestMapping(value = "/getVehicleInformation", method = RequestMethod.GET)
-    public List<VehicleEntity> getAllVehicle()
+    @GetMapping(value = "/getVehicleInformation")
+    public List<vehicleEntity> getAllVehicle()
     {
         //Sort
         //TODO
         return null;
     }
 
+    //Q3: Retrieve vehicle by modelName
+    @GetMapping("/getVehicleModelName/{modelName}")
+    public List<vehicleEntity> getVehicleByModelName()
+    {
+        //TODO
+        return null;
+    }
+
+    //Q4: Retrieve vehicle by price range
+    @GetMapping("/getVehiclePrice/{from}/{to}")
+    public List<vehicleEntity> getVehicleByPriceRange()
+    {
+        //TODO
+        return null;
+    }
+
+    //Q5: Retrieve all vehicles contains matching Interior or Exterior features
+    @GetMapping("/getVehicleByFeatures/{exterior}/{interior}")
+    public List<vehicleEntity> getVehicleByFeature(String exterior, String interior)
+    {
+        //TODO
+        return null;
+    }
 
 
 

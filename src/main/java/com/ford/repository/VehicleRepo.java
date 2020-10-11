@@ -1,8 +1,9 @@
-package com.Ford.Repository;
+package com.ford.repository;
 
-import com.Ford.Model.VehicleEntity;
+import com.ford.model.vehicleEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface VehicleRepo extends MongoRepository<VehicleEntity, String>
+public interface VehicleRepo extends MongoRepository<vehicleEntity, String>
 {
+
 }

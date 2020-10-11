@@ -1,9 +1,8 @@
-package com.Ford.Model;
+package com.ford.model;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@Document
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class vehicleDetail
 {
     private String make;
@@ -87,7 +86,6 @@ public class vehicleDetail
         this.color = color;
     }
 
-
     public vehicleFeature getVehicleFeature() {
         return vehicleFeature;
     }
@@ -104,11 +102,11 @@ public class vehicleDetail
         this.MPG = MPG;
     }
 
-    public com.Ford.Model.vehiclePrice[] getVehiclePrice() {
+    public com.ford.model.vehiclePrice[] getVehiclePrice() {
         return vehiclePrice;
     }
 
-    public void setVehiclePrice(com.Ford.Model.vehiclePrice[] vehiclePrice) {
+    public void setVehiclePrice(com.ford.model.vehiclePrice[] vehiclePrice) {
         this.vehiclePrice = vehiclePrice;
     }
 

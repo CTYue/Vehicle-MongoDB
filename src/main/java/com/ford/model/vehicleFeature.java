@@ -1,33 +1,32 @@
-package com.Ford.Model;
+package com.ford.model;
 
 
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-@Document
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class vehicleFeature
 {
-    //vehicleFeature是一个sub-document
-    private ExteriorFeatures Exterior;
+    private String[] Exterior;
 
-    private InteriorFeatures Interior;
+    private String[] Interior;
 
-    public ExteriorFeatures getExterior() {
+    public String[] getExterior() {
         return Exterior;
     }
 
-    public void setExterior(ExteriorFeatures exterior) {
+    public void setExterior(String[] exterior) {
         Exterior = exterior;
     }
 
-    public InteriorFeatures getInterior() {
+    public String[] getInterior() {
         return Interior;
     }
 
-    public void setInterior(InteriorFeatures interior) {
+    public void setInterior(String[] interior) {
         Interior = interior;
     }
 
-    public vehicleFeature(ExteriorFeatures exterior, InteriorFeatures interior) {
+    public vehicleFeature(String[] exterior, String[] interior) {
         Exterior = exterior;
         Interior = interior;
     }

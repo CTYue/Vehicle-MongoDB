@@ -6,13 +6,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @Document(collection="vehicle_inventory")
-public class vehicleEntity
+public class VehicleEntity
 {
     @Id
     private Integer vehicleId;
-    private vehicleDetail vehicleDetails;
+    private VehicleDetail vehicleDetails;
 
-    public vehicleEntity(){}
+    public VehicleEntity(){}
 
     public Integer getVehicleId() {
         return vehicleId;
@@ -22,15 +22,15 @@ public class vehicleEntity
         this.vehicleId = vehicleId;
     }
 
-    public vehicleDetail getVehicleDetails() {
+    public VehicleDetail getVehicleDetails() {
         return vehicleDetails;
     }
 
-    public void setVehicleDetails(vehicleDetail vehicleDetails) {
+    public void setVehicleDetails(VehicleDetail vehicleDetails) {
         this.vehicleDetails = vehicleDetails;
     }
 
-    public vehicleEntity(Integer vehicleId, vehicleDetail vehicleDetails, String[] stringArray) {
+    public VehicleEntity(Integer vehicleId, VehicleDetail vehicleDetails, String[] stringArray) {
         this.vehicleId = vehicleId;
         this.vehicleDetails = vehicleDetails;
     }

@@ -3,7 +3,7 @@ package com.ford.model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public class vehicleDetail
+public class VehicleDetail
 {
     private String make;
     private String model;
@@ -13,10 +13,10 @@ public class vehicleDetail
     private String drivetype;
     private String color;
     private String MPG;
-    private vehicleFeature vehicleFeature;
-    private vehiclePrice[] vehiclePrice;
+    private VehicleFeature vehicleFeature;
+    private VehiclePrice[] vehiclePrice;
 
-    public vehicleDetail(String make, String model, String modelYear, String bodyStyle, String engine, String drivetype, String color, String MPG, vehicleFeature vehicleFeature, vehiclePrice[] vehiclePrice)
+    public VehicleDetail(String make, String model, String modelYear, String bodyStyle, String engine, String drivetype, String color, String MPG, VehicleFeature vehicleFeature, VehiclePrice[] vehiclePrice)
     {
         this.make = make;
         this.model = model;
@@ -86,11 +86,11 @@ public class vehicleDetail
         this.color = color;
     }
 
-    public vehicleFeature getVehicleFeature() {
+    public VehicleFeature getVehicleFeature() {
         return vehicleFeature;
     }
 
-    public void setVehicleFeature(vehicleFeature vehicleFeature) {
+    public void setVehicleFeature(VehicleFeature vehicleFeature) {
         this.vehicleFeature = vehicleFeature;
     }
 
@@ -102,11 +102,11 @@ public class vehicleDetail
         this.MPG = MPG;
     }
 
-    public com.ford.model.vehiclePrice[] getVehiclePrice() {
+    public VehiclePrice[] getVehiclePrice() {
         return vehiclePrice;
     }
 
-    public void setVehiclePrice(com.ford.model.vehiclePrice[] vehiclePrice) {
+    public void setVehiclePrice(VehiclePrice[] vehiclePrice) {
         this.vehiclePrice = vehiclePrice;
     }
 

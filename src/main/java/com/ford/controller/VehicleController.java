@@ -1,7 +1,7 @@
 package com.ford.controller;
 
 import java.util.*;
-import com.ford.model.vehicleEntity;
+import com.ford.model.VehicleEntity;
 import com.ford.repository.VehicleRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,7 +22,7 @@ public class VehicleController {
     @ResponseStatus(HttpStatus.OK)
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
 //    public vehicleEntity postVehicle(@RequestBody vehicleEntity[] vehicle)
-    public vehicleEntity postVehicle(@RequestBody vehicleEntity vehicle)
+    public VehicleEntity postVehicle(@RequestBody VehicleEntity vehicle)
     {
         //如何按照data set处理这里的输入？
         //for(vehicleEntity v: vehicle)
@@ -36,7 +36,7 @@ public class VehicleController {
     //Q2: Retrieve all entities from database
     //这里可以使用Pageable技术优化结果？
     @GetMapping(value = "/getVehicleInformation")
-    public List<vehicleEntity> getAllVehicle()
+    public List<VehicleEntity> getAllVehicle()
     {
         //Sort
         //TODO
@@ -45,7 +45,7 @@ public class VehicleController {
 
     //Q3: Retrieve vehicle by modelName
     @GetMapping("/getVehicleModelName/{modelName}")
-    public List<vehicleEntity> getVehicleByModelName()
+    public List<VehicleEntity> getVehicleByModelName()
     {
         //TODO
         return null;
@@ -53,7 +53,7 @@ public class VehicleController {
 
     //Q4: Retrieve vehicle by price range
     @GetMapping("/getVehiclePrice/{from}/{to}")
-    public List<vehicleEntity> getVehicleByPriceRange()
+    public List<VehicleEntity> getVehicleByPriceRange()
     {
         //TODO
         return null;
@@ -61,7 +61,7 @@ public class VehicleController {
 
     //Q5: Retrieve all vehicles contains matching Interior or Exterior features
     @GetMapping("/getVehicleByFeatures/{exterior}/{interior}")
-    public List<vehicleEntity> getVehicleByFeature(String exterior, String interior)
+    public List<VehicleEntity> getVehicleByFeature(String exterior, String interior)
     {
         //TODO
         return null;

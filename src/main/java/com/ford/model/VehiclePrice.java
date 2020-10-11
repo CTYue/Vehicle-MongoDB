@@ -3,13 +3,13 @@ package com.ford.model;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
-public class vehiclePrice
+public class VehiclePrice
 {
     private String MSRP;
     private String Savings;
     private String finalPrice;
 
-    public vehiclePrice(String MSRP, String Savings, String finalPrice) {
+    public VehiclePrice(String MSRP, String Savings, String finalPrice) {
         this.MSRP = MSRP;
         this.Savings = Savings;
         this.finalPrice = finalPrice;

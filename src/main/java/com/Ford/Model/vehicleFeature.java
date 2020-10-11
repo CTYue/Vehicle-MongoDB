@@ -1,33 +1,34 @@
 package com.Ford.Model;
 
-import lombok.ToString;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-
-@ToString
+@Document
 public class vehicleFeature
 {
-    @Field("Exterior")
-    private exteriorFeature extFeatures;
+    //vehicleFeature是一个sub-document
+    private ExteriorFeatures Exterior;
 
-    @Field("Interior")
-    private interiorFeature intFeatures;
+    private InteriorFeatures Interior;
 
-    public exteriorFeature getExtFeatures() {
-        return extFeatures;
+    public ExteriorFeatures getExterior() {
+        return Exterior;
     }
 
-    public void setExtFeatures(exteriorFeature extFeatures) {
-        this.extFeatures = extFeatures;
+    public void setExterior(ExteriorFeatures exterior) {
+        Exterior = exterior;
     }
 
-    public interiorFeature getIntFeatures() {
-        return intFeatures;
+    public InteriorFeatures getInterior() {
+        return Interior;
     }
 
-    public void setIntFeatures(interiorFeature intFeatures) {
-        this.intFeatures = intFeatures;
+    public void setInterior(InteriorFeatures interior) {
+        Interior = interior;
+    }
+
+    public vehicleFeature(ExteriorFeatures exterior, InteriorFeatures interior) {
+        Exterior = exterior;
+        Interior = interior;
     }
 }

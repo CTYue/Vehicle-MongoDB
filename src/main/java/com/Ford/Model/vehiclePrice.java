@@ -1,38 +1,38 @@
 package com.Ford.Model;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import jdk.nashorn.internal.objects.annotations.Setter;
-import lombok.ToString;
-import org.springframework.data.mongodb.core.mapping.Document;
-
-@ToString
 public class vehiclePrice
 {
-    private Integer MSRP;
-    private Integer Savings;
-    private Integer finalPrice;
+    private String MSRP;
+    private String Savings;
+    private String finalPrice;
 
-    public Integer getMSRP() {
+    public vehiclePrice(String MSRP, String Savings, String finalPrice) {
+        this.MSRP = MSRP;
+        this.Savings = Savings;
+        this.finalPrice = finalPrice;
+    }
+
+    public String getMSRP() {
         return MSRP;
     }
 
-    public void setMSRP(Integer MSRP) {
+    public void setMSRP(String MSRP) {
         this.MSRP = MSRP;
     }
 
-    public Integer getSavings() {
+    public String getSavings() {
         return Savings;
     }
 
-    public void setSavings(Integer savings) {
+    public void setSavings(String savings) {
         Savings = savings;
     }
 
-    public Integer getFinalPrice() {
+    public String getFinalPrice() {
         return finalPrice;
     }
 
-    public void setFinalPrice(Integer finalPrice) {
+    public void setFinalPrice(String finalPrice) {
         this.finalPrice = finalPrice;
     }
 }

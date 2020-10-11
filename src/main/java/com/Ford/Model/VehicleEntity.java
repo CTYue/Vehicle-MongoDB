@@ -1,26 +1,21 @@
 package com.Ford.Model;
 
-
-import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="vehicle_inventory")
-@ToString
 public class VehicleEntity
 {
-    //这里的ToString如何重写？
-
     @Id
     private Integer vehicleId;
+    private vehicleDetail vehicleDetails;
 
-    @PersistenceConstructor
-    public VehicleEntity(Integer vehicleId, vehicleDetail vDetail) {
+    public VehicleEntity(Integer vehicleId, vehicleDetail vehicleDetails)
+    {
         this.vehicleId = vehicleId;
-        this.vDetail = vDetail;
+        this.vehicleDetails = vehicleDetails;
     }
 
     public Integer getVehicleId()
@@ -33,14 +28,11 @@ public class VehicleEntity
         this.vehicleId = vehicleId;
     }
 
-    @Field("vehicleDetails")
-    private vehicleDetail vDetail;
-
-    public vehicleDetail getvDetail() {
-        return vDetail;
+    public vehicleDetail getVehicleDetails() {
+        return vehicleDetails;
     }
 
-    public void setvDetail(vehicleDetail vDetail) {
-        this.vDetail = vDetail;
+    public void setVehicleDetails(vehicleDetail vehicleDetails) {
+        this.vehicleDetails = vehicleDetails;
     }
 }

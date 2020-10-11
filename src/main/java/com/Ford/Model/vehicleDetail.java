@@ -1,11 +1,9 @@
 package com.Ford.Model;
 
-import lombok.ToString;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
-@ToString
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
 public class vehicleDetail
 {
     private String make;
@@ -16,12 +14,22 @@ public class vehicleDetail
     private String drivetype;
     private String color;
     private String MPG;
+    private vehicleFeature vehicleFeature;
+    private vehiclePrice[] vehiclePrice;
 
-    @Field("vehicleFeature")
-    private vehicleFeature vFeature;
-
-    @Field("vehiclePrice")
-    private vehiclePrice vPrice;
+    public vehicleDetail(String make, String model, String modelYear, String bodyStyle, String engine, String drivetype, String color, String MPG, vehicleFeature vehicleFeature, vehiclePrice[] vehiclePrice)
+    {
+        this.make = make;
+        this.model = model;
+        this.modelYear = modelYear;
+        this.bodyStyle = bodyStyle;
+        this.engine = engine;
+        this.drivetype = drivetype;
+        this.color = color;
+        this.MPG = MPG;
+        this.vehicleFeature = vehicleFeature;
+        this.vehiclePrice = vehiclePrice;
+    }
 
     public String getMake() {
         return make;
@@ -79,12 +87,29 @@ public class vehicleDetail
         this.color = color;
     }
 
+
+    public vehicleFeature getVehicleFeature() {
+        return vehicleFeature;
+    }
+
+    public void setVehicleFeature(vehicleFeature vehicleFeature) {
+        this.vehicleFeature = vehicleFeature;
+    }
+
     public String getMPG() {
         return MPG;
     }
 
     public void setMPG(String MPG) {
         this.MPG = MPG;
+    }
+
+    public com.Ford.Model.vehiclePrice[] getVehiclePrice() {
+        return vehiclePrice;
+    }
+
+    public void setVehiclePrice(com.Ford.Model.vehiclePrice[] vehiclePrice) {
+        this.vehiclePrice = vehiclePrice;
     }
 
 }

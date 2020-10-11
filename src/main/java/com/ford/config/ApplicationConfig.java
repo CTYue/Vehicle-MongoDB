@@ -9,23 +9,6 @@ import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
-
-//@Configuration
-//@EnableMongoRepositories
-//class ApplicationConfig extends AbstractMongoClientConfiguration {
-//
-//    @Override
-//    protected String getDatabaseName() {
-//        return "ford";
-//    }
-//
-//
-//    @Override
-//    public MongoClient mongoClient() {
-//        return new MongoClient("localhost", 27017);
-//    }
-//}
-
 class ApplicationConfig {
     @Autowired
     MongoDbFactory mongoDbFactory;

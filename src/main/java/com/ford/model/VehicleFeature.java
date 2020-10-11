@@ -1,33 +1,34 @@
 package com.ford.model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class VehicleFeature
 {
-    private String[] Exterior;
+    @Field("Exterior")
+    private String[] exterior;
 
-    private String[] Interior;
+    @Field("Interior")
+    private String[] interior;
 
     public String[] getExterior() {
-        return Exterior;
+        return exterior;
     }
 
     public void setExterior(String[] exterior) {
-        Exterior = exterior;
+        this.exterior = exterior;
     }
 
     public String[] getInterior() {
-        return Interior;
+        return interior;
     }
 
     public void setInterior(String[] interior) {
-        Interior = interior;
+        this.interior = interior;
     }
 
     public VehicleFeature(String[] exterior, String[] interior) {
-        Exterior = exterior;
-        Interior = interior;
+        this.exterior = exterior;
+        this.interior = interior;
     }
+
 }

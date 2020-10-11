@@ -1,24 +1,23 @@
 package com.ford.model;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
+//@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 @Document(collection="vehicle_inventory")
 public class VehicleEntity
 {
     @Id
-    private Integer vehicleId;
-    private VehicleDetail vehicleDetails;
+    private String vehicleId;
+    private VehicleDetail vehicleDetails;//
 
     public VehicleEntity(){}
 
-    public Integer getVehicleId() {
+    public String getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(Integer vehicleId) {
+    public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
     }
 
@@ -30,7 +29,7 @@ public class VehicleEntity
         this.vehicleDetails = vehicleDetails;
     }
 
-    public VehicleEntity(Integer vehicleId, VehicleDetail vehicleDetails, String[] stringArray) {
+    public VehicleEntity(String vehicleId, VehicleDetail vehicleDetails) {
         this.vehicleId = vehicleId;
         this.vehicleDetails = vehicleDetails;
     }

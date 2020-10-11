@@ -1,34 +1,37 @@
 package com.ford.model;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY, getterVisibility = JsonAutoDetect.Visibility.NONE, isGetterVisibility = JsonAutoDetect.Visibility.NONE)
 public class VehiclePrice
 {
-    private String MSRP;
-    private String Savings;
+    @Field("MSRP")
+    private String msrp;
+
+    @Field("Savings")
+    private String savings;
+
     private String finalPrice;
 
-    public VehiclePrice(String MSRP, String Savings, String finalPrice) {
-        this.MSRP = MSRP;
-        this.Savings = Savings;
+    public VehiclePrice(String msrp, String savings, String finalPrice) {
+        this.msrp = msrp;
+        this.savings = savings;
         this.finalPrice = finalPrice;
     }
 
-    public String getMSRP() {
-        return MSRP;
+    public String getMsrp() {
+        return msrp;
     }
 
-    public void setMSRP(String MSRP) {
-        this.MSRP = MSRP;
+    public void setMsrp(String msrp) {
+        this.msrp = msrp;
     }
 
     public String getSavings() {
-        return Savings;
+        return savings;
     }
 
     public void setSavings(String savings) {
-        Savings = savings;
+        this.savings = savings;
     }
 
     public String getFinalPrice() {

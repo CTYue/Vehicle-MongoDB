@@ -9,7 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-
+/**
+ * Bind Java Exception to HTTP Responses, so both back-end
+ * and front-end get the same error message.
+ */
 @ControllerAdvice
 public class VehicleExceptionHandler {
 

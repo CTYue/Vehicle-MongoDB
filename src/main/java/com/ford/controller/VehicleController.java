@@ -40,7 +40,8 @@ public class VehicleController {
 
     //Q2: Retrieve all entities from database
     @GetMapping(value = "/getVehicleInformation/")
-    @ApiOperation( value = "Get all vehicle information at one time.")
+    @ApiOperation(value = "Get all vehicle information at one time.", response = List.class)
+    @ResponseStatus(code=HttpStatus.OK)
     public List<VehicleEntity> getAllVehicle()
     {
         return vRepo.findAll();

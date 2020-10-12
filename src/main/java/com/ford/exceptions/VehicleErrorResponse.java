@@ -14,13 +14,6 @@ public class VehicleErrorResponse {
 
     public VehicleErrorResponse(){}
 
-    /**
-     * Instantiates a new Vehicle error response.
-     *
-     * @param status     Http status
-     * @param statusCode Http status code
-     * @param message    Response message
-     */
     public VehicleErrorResponse(String status, int statusCode, String message) {
         this.status = status;
         this.statusCode = statusCode;

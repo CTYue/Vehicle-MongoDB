@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
@@ -23,33 +24,29 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@AutoConfigureMockMvc
 class VehicleControllerTest {
 
     @Autowired
     private WebApplicationContext wac;
 
+    @Autowired
     private MockMvc mvc;
-
-    @Before
-    public void SetupMockMvc()
-    {
-        mvc = MockMvcBuilders.webAppContextSetup(wac).build();
-    }
-
 
     @Test
     void postVehicle() throws Exception
     {
         //Save test input json as file.
         // ./Ford/src/test/java/resources/post.json
-
+        //TODO
 
     }
 
     @Test
-    void getAllVehicle() throws Exception //这里有问题！nullpointerException
+    void getAllVehicle() throws Exception
     {
-        String request = "/getVehicleInfomation";
+        String request = "/getVehicleInfomation/";
+
         mvc.perform(MockMvcRequestBuilders.get(request)
         .contentType(MediaType.APPLICATION_JSON)
         ).andExpect(MockMvcResultMatchers.status().isOk())

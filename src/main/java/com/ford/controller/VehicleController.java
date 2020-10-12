@@ -55,12 +55,12 @@ public class VehicleController {
     public List<VehicleEntity> getVehicleByModelName(@ApiParam(value = "Vehicle model name to be searched.", required = true)
                                                          @PathVariable String modelName)
     {
-        if(!vRepo.findByModel(modelName).isPresent())
+        if(vRepo.findByModel(modelName).get().isEmpty())
             throw new VehicleNotFoundException("Vehicle NOT found!");
         else
             return vRepo.findByModel(modelName).get();
     }
-    
+
     //Q4: Retrieve vehicle by price range
     @GetMapping("/getVehiclePrice/{from}/{to}")
     @ApiOperation(value= "Find vehicles priced in given range.")

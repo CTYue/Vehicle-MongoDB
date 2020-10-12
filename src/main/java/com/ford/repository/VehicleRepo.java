@@ -24,8 +24,10 @@ public interface VehicleRepo extends MongoRepository<VehicleEntity, String>
     Optional<List<VehicleEntity>> findByModel(String modelName);
 
     //TODO
+    //@Query
     //List<VehicleEntity> findByPriceRange(String from, String to);
 
     //TODO
+    //@Query
     //List<VehicleEntity> findByVehicleByFeature(String extFeature, String intFeature);
 }

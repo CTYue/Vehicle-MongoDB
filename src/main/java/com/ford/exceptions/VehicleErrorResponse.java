@@ -5,7 +5,7 @@
 package com.ford.exceptions;
 
 /**
- * This class provides HTTP Response blabla.
+ * This class defines the format for vehicle error responses.
  */
 public class VehicleErrorResponse {
     private String status;

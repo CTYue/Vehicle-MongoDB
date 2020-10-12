@@ -37,5 +37,4 @@ public class VehicleFeature
         this.exterior = exterior;
         this.interior = interior;
     }
-
 }

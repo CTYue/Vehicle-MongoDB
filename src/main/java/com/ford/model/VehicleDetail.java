@@ -7,7 +7,7 @@ package com.ford.model;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
- * VehicleDetail sub-document
+ * VehicleDetails sub-document
  */
 public class VehicleDetail
 {

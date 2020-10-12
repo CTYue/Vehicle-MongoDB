@@ -42,7 +42,7 @@ class VehicleControllerTest {
     @Test
     void postVehicle() throws Exception
     {
-        // ./Ford/src/test/java/resources/post.json
+        // Test Input: ./Ford/src/test/java/resources/post.json
         //TODO
     }
 

@@ -5,15 +5,20 @@ package com.ford.controller;
 
 import java.util.*;
 
+import com.ford.exceptions.VehicleJsonFormatException;
 import com.ford.exceptions.VehicleNotFoundException;
 import com.ford.model.VehicleEntity;
 import com.ford.repository.VehicleRepo;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+@EnableSwagger2
 @RestController
 public class VehicleController {
 
@@ -22,46 +27,57 @@ public class VehicleController {
 
     //Q1: Post vehicle information
     @PostMapping(value="/vehicleInformation/submitVehicle/", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> postVehicle(@RequestBody VehicleEntity vehicle)
+    @ApiOperation(value = "Post a vehicle entity to database using json.",
+            response = ResponseEntity.class)
+    public ResponseEntity<String> postVehicle(@ApiParam(value = "Vehicle entity to be posted.", required = true)
+                                                  @RequestBody VehicleEntity vehicle)
     {
-       if(vRepo.save(vehicle)==vehicle)
-           return new ResponseEntity<String>("Vehicle submitted to the database successfully!", HttpStatus.OK);
+       if(!vRepo.save(vehicle).equals(vehicle))
+            throw new VehicleJsonFormatException("Malformed JSON request!");
        else
-           return new ResponseEntity<String>("Error: Malformed JSON!", HttpStatus.BAD_REQUEST);
+           return new ResponseEntity<String>("Vehicle submitted to the database successfully!", HttpStatus.OK);
     }
 
     //Q2: Retrieve all entities from database
     @GetMapping(value = "/getVehicleInformation/")
+    @ApiOperation( value = "Get all vehicle information at one time.")
     public List<VehicleEntity> getAllVehicle()
     {
-        //这里可以使用Pageable技术优化结果？TODO
         return vRepo.findAll();
     }
 
     //Q3: Retrieve vehicle by modelName
     @GetMapping("/getVehicleModelName/{modelName}")
+    @ApiOperation(value = "Find vehicles by its model name",
+            notes = "Provides a vehicle name",
+            response = List.class)
     @ResponseStatus(code=HttpStatus.OK)
-    public Optional<VehicleEntity> getVehicleByModelName(@PathVariable String modelName)
+    public List<VehicleEntity> getVehicleByModelName(@ApiParam(value = "Vehicle model name to be searched.", required = true)
+                                                         @PathVariable String modelName)
     {
-        if(vRepo.findByModel(modelName)==null)
+        if(vRepo.findByModel(modelName).get().isEmpty())
             throw new VehicleNotFoundException("Vehicle NOT found!");
-        else
-            return vRepo.findByModel(modelName);
+
+        return vRepo.findByModel(modelName).get();
     }
 
     //Q4: Retrieve vehicle by price range
     @GetMapping("/getVehiclePrice/{from}/{to}")
-    public List<VehicleEntity> getVehicleByPriceRange(@PathVariable String from, @PathVariable String to)
+    @ApiOperation(value= "Find vehicles priced in given range.")
+    public List<VehicleEntity> getVehicleByPriceRange(@ApiParam(value = "Starting price.", required = true)  @PathVariable String from,
+                                                      @ApiParam(value = "Price up to.") @PathVariable String to)
     {
-        //vRepo.findByPriceRange() TODO
+        //TODO
         return null;
     }
 
     //Q5: Retrieve all vehicles contains matching Interior or Exterior features
     @GetMapping(value = "/getVehicleByFeatures/{exterior}/{interior}")
-    public List<VehicleEntity> getVehicleByFeature(@PathVariable String exterior, @PathVariable String interior)
+    @ApiOperation(value = "Find vehicles with exterior features and/or interior features.")
+    public List<VehicleEntity> getVehicleByFeature(@ApiParam(value = "Exterior feature keyword.", required = true) @PathVariable String exterior,
+                                                   @ApiParam(value = "Interior feature keyword.") @PathVariable String interior)
     {
-        //vRepo.findByVehicleByFeature() TODO
+        //TODO
         return null;
     }
 

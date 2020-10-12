@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
+ */
+
 package com.ford.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,9 @@ import org.springframework.data.mongodb.core.convert.DefaultMongoTypeMapper;
 import org.springframework.data.mongodb.core.convert.MappingMongoConverter;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
+/**
+ * Setup the application with Mongodb mapper and factory.
+ */
 class ApplicationConfig {
     @Autowired
     MongoDbFactory mongoDbFactory;

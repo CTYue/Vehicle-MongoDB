@@ -1,7 +1,14 @@
+/*
+ * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
+ */
+
 package com.ford.model;
 
 import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * VehiclePrice sub-document
+ */
 public class VehiclePrice
 {
     @Field("MSRP")

@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpSession;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
@@ -36,31 +37,24 @@ class VehicleControllerTest {
     @Test
     void postVehicle() throws Exception
     {
-        //Save test input json as file.
         // ./Ford/src/test/java/resources/post.json
         //TODO
-
     }
 
     @Test
     void getAllVehicle() throws Exception
     {
-        String request = "/getVehicleInfomation/";
-
-        mvc.perform(MockMvcRequestBuilders.get(request)
-        .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(MockMvcResultMatchers.status().isOk())
-        .andExpect(MockMvcResultMatchers.jsonPath("$._id").value("101"))
-        .andExpect(MockMvcResultMatchers.jsonPath("$.vehicleDetails.model").value("ecoSport"))
-        .andDo(MockMvcResultHandlers.print());
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/getVehicleInformation") )
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
     }
 
     @Test
     void getVehicleByModelName() throws Exception
     {
-        String request="/getVehicleModelName/";
-
-
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get("/getVehicleModelName/ecoSport") )
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andReturn();
     }
 
     @Test

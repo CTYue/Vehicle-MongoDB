@@ -56,7 +56,7 @@ public class VehicleController {
     public List<VehicleEntity> getVehicleByModelName(@ApiParam(value = "Vehicle model name to be searched.", required = true)
                                                          @PathVariable String modelName)
     {
-        if(vRepo.findByModel(modelName).get().isEmpty())
+        if(!vRepo.findByModel(modelName).isPresent())
             throw new VehicleNotFoundException("Vehicle NOT found!");
 
         return vRepo.findByModel(modelName).get();
@@ -66,7 +66,7 @@ public class VehicleController {
     @GetMapping("/getVehiclePrice/{from}/{to}")
     @ApiOperation(value= "Find vehicles priced in given range.")
     public List<VehicleEntity> getVehicleByPriceRange(@ApiParam(value = "Starting price.", required = true)  @PathVariable String from,
-                                                      @ApiParam(value = "Price up to.") @PathVariable String to)
+                                                      @ApiParam(value = "Price up to.", required = true) @PathVariable String to)
     {
         //TODO
         return null;
@@ -76,7 +76,7 @@ public class VehicleController {
     @GetMapping(value = "/getVehicleByFeatures/{exterior}/{interior}")
     @ApiOperation(value = "Find vehicles with exterior features and/or interior features.")
     public List<VehicleEntity> getVehicleByFeature(@ApiParam(value = "Exterior feature keyword.", required = true) @PathVariable String exterior,
-                                                   @ApiParam(value = "Interior feature keyword.") @PathVariable String interior)
+                                                   @ApiParam(value = "Interior feature keyword.", required = true) @PathVariable String interior)
     {
         //TODO
         return null;

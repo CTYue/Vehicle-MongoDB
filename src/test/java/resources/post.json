@@ -1,0 +1,34 @@
+{
+  "vehicleId":"101",
+  "vehicleDetails":{
+    "make":"Ford",
+    "model":"ecoSport",
+    "modelYear":"2020",
+    "bodyStyle":"4D Sport Utility",
+    "engine":"1.0L EcoBoost",
+    "drivetype":"FWD",
+    "color":"shadow black",
+    "MPG":"27",
+    "vehicleFeature":{
+      "Exterior":[
+        "Acoustic-Laminate Windshld",
+        "Active Grille Shutters",
+        "Windshield Wiper De-Icer",
+        "Privacy Glass - Rear Doors"
+      ],
+      "Interior":[
+        "Illuminated Entry System",
+        "Powerpoints - 12V",
+        "Power Driver Seat - 6-Way",
+        "Unique Clth/Htd Frt Seats"
+      ]
+    },
+    "vehiclePrice":[
+      {
+        "MSRP":"$25,000.00",
+        "Savings":"$5000",
+        "finalPrice":"$20,000.00"
+      }
+    ]
+  }
+}

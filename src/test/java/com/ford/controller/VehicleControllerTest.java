@@ -29,33 +29,29 @@ class VehicleControllerTest {
     private WebApplicationContext wac;
 
     private MockMvc mvc;
-    private MockHttpSession session;
 
     @Before
     public void SetupMockMvc()
     {
-        //Initialize Mock object.
         mvc = MockMvcBuilders.webAppContextSetup(wac).build();
-        session = new MockHttpSession();
-
-
     }
 
 
     @Test
     void postVehicle() throws Exception
     {
-//        String json=
+        //Save test input json as file.
+        // ./Ford/src/test/java/resources/post.json
+
 
     }
 
     @Test
-    void getAllVehicle() throws Exception
+    void getAllVehicle() throws Exception //这里有问题！nullpointerException
     {
         String request = "/getVehicleInfomation";
         mvc.perform(MockMvcRequestBuilders.get(request)
         .contentType(MediaType.APPLICATION_JSON)
-        .session(session)
         ).andExpect(MockMvcResultMatchers.status().isOk())
         .andExpect(MockMvcResultMatchers.jsonPath("$._id").value("101"))
         .andExpect(MockMvcResultMatchers.jsonPath("$.vehicleDetails.model").value("ecoSport"))

@@ -1,15 +1,18 @@
+/*
+ * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
+ */
 package com.ford.controller;
 
 import java.util.*;
 
+import com.ford.exceptions.VehicleNotFoundException;
 import com.ford.model.VehicleEntity;
 import com.ford.repository.VehicleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.Option;
 
 @RestController
 public class VehicleController {
@@ -17,43 +20,33 @@ public class VehicleController {
     @Autowired
     private VehicleRepo vRepo;
 
-    //error handling怎么写？
-
     //Q1: Post vehicle information
-    @ResponseStatus(HttpStatus.OK)
     @PostMapping(value="/vehicleInformation/submitVehicle/", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public VehicleEntity postVehicle(@RequestBody VehicleEntity vehicle)
+    public ResponseEntity<String> postVehicle(@RequestBody VehicleEntity vehicle)
     {
-        //Add vehicle info one by one to the db.
-        //Need a JSON translator to fit the required input format.
-//        if(vRepo.save(vehicle)!=vehicle)
-//            return "Error!";
-//
-//        return "Vehicles submitted successfully.";
-        return vRepo.save(vehicle);
+       if(vRepo.save(vehicle)==vehicle)
+           return new ResponseEntity<String>("Vehicle submitted to the database successfully!", HttpStatus.OK);
+       else
+           return new ResponseEntity<String>("Error: Malformed JSON!", HttpStatus.BAD_REQUEST);
     }
-
 
     //Q2: Retrieve all entities from database
     @GetMapping(value = "/getVehicleInformation/")
     public List<VehicleEntity> getAllVehicle()
     {
-        //TODO
-        //这里可以使用Pageable技术优化结果？
-
-
-
+        //这里可以使用Pageable技术优化结果？TODO
         return vRepo.findAll();
     }
 
     //Q3: Retrieve vehicle by modelName
     @GetMapping("/getVehicleModelName/{modelName}")
+    @ResponseStatus(code=HttpStatus.OK)
     public Optional<VehicleEntity> getVehicleByModelName(@PathVariable String modelName)
     {
-        Optional<VehicleEntity> res = vRepo.findByModel(modelName);
-        System.out.println(res.toString());
-
-        return res;
+        if(vRepo.findByModel(modelName)==null)
+            throw new VehicleNotFoundException("Vehicle NOT found!");
+        else
+            return vRepo.findByModel(modelName);
     }
 
     //Q4: Retrieve vehicle by price range
@@ -71,8 +64,5 @@ public class VehicleController {
         //vRepo.findByVehicleByFeature() TODO
         return null;
     }
-
-
-
 
 }

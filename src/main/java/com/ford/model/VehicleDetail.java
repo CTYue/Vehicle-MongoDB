@@ -1,5 +1,7 @@
 package com.ford.model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public class VehicleDetail
 {
     private String make;
@@ -9,11 +11,12 @@ public class VehicleDetail
     private String engine;
     private String drivetype;
     private String color;
-    private String MPG;
+    @Field("MPG")
+    private String mpg;
     private VehicleFeature vehicleFeature;
     private VehiclePrice[] vehiclePrice;
 
-    public VehicleDetail(String make, String model, String modelYear, String bodyStyle, String engine, String drivetype, String color, String MPG, VehicleFeature vehicleFeature, VehiclePrice[] vehiclePrice)
+    public VehicleDetail(String make, String model, String modelYear, String bodyStyle, String engine, String drivetype, String color, String mpg, VehicleFeature vehicleFeature, VehiclePrice[] vehiclePrice)
     {
         this.make = make;
         this.model = model;
@@ -22,7 +25,7 @@ public class VehicleDetail
         this.engine = engine;
         this.drivetype = drivetype;
         this.color = color;
-        this.MPG = MPG;
+        this.mpg = mpg;
         this.vehicleFeature = vehicleFeature;
         this.vehiclePrice = vehiclePrice;
     }
@@ -91,12 +94,12 @@ public class VehicleDetail
         this.vehicleFeature = vehicleFeature;
     }
 
-    public String getMPG() {
-        return MPG;
+    public String getMpg() {
+        return mpg;
     }
 
-    public void setMPG(String MPG) {
-        this.MPG = MPG;
+    public void setMpg(String mpg) {
+        this.mpg = mpg;
     }
 
     public VehiclePrice[] getVehiclePrice() {

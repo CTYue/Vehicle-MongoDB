@@ -8,7 +8,6 @@
  Ths APIs interact with the MongoDB database, which is a document-oriented NoSQL database. 
 
 
-
 ### How to use
   The entire project is based on Spring boot, so just start the application from its Spring boot entry point.  
   For API details, just visit http://localhost:8080/swagger-ui.html after you started the application.

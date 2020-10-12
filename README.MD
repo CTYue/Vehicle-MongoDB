@@ -20,9 +20,10 @@
   API documentation: Swagger 2/Swagger 2 UI  
 
 ### Design Principles
-
+  TODO
 
 ### Code Structure
-
+  TODO
 
 ### Screenshots 
+  TODO

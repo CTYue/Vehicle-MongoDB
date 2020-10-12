@@ -19,3 +19,10 @@
   Unit testing: JUnit 5/MockMvc  
   API documentation: Swagger 2/Swagger 2 UI  
 
+### Design Principles
+
+
+### Code Structure
+
+
+### Screenshots 

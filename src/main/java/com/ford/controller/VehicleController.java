@@ -26,20 +26,19 @@ public class VehicleController {
     private VehicleRepo vRepo;
 
     //Q1: Post vehicle information
-    @PostMapping(value="/vehicleInformation/submitVehicle/", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ApiOperation(value = "Post a vehicle entity to database using json.",
-            response = ResponseEntity.class)
+    @PostMapping(value="/vehicleInformation/submitVehicle", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Post a vehicle entity to database using json.", response = ResponseEntity.class)
     public ResponseEntity<String> postVehicle(@ApiParam(value = "Vehicle entity to be posted.", required = true)
                                                   @RequestBody VehicleEntity vehicle)
     {
-       if(!vRepo.save(vehicle).equals(vehicle))
+        if(!vRepo.save(vehicle).equals(vehicle))
             throw new VehicleJsonFormatException("Malformed JSON request!");
        else
-           return new ResponseEntity<String>("Vehicle submitted to the database successfully!", HttpStatus.OK);
+           return new ResponseEntity<>("Vehicle submitted to the database successfully!", HttpStatus.OK);
     }
 
     //Q2: Retrieve all entities from database
-    @GetMapping(value = "/getVehicleInformation/")
+    @GetMapping(value = "/getVehicleInformation")
     @ApiOperation(value = "Get all vehicle information at one time.", response = List.class)
     @ResponseStatus(code=HttpStatus.OK)
     public List<VehicleEntity> getAllVehicle()
@@ -58,10 +57,10 @@ public class VehicleController {
     {
         if(!vRepo.findByModel(modelName).isPresent())
             throw new VehicleNotFoundException("Vehicle NOT found!");
-
-        return vRepo.findByModel(modelName).get();
+        else
+            return vRepo.findByModel(modelName).get();
     }
-
+    
     //Q4: Retrieve vehicle by price range
     @GetMapping("/getVehiclePrice/{from}/{to}")
     @ApiOperation(value= "Find vehicles priced in given range.")

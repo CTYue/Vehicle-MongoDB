@@ -10,12 +10,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Main document for vehicle entities
  */
+
 @Document(collection="vehicle_inventory")
 public class VehicleEntity
 {
     @Id
     private String vehicleId;
-    private VehicleDetail vehicleDetails;//
+    private VehicleDetail vehicleDetails;
 
     public VehicleEntity(){}
 

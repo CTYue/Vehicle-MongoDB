@@ -34,6 +34,11 @@ class VehicleControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    /**
+     * Test postVehicle() API.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void postVehicle() throws Exception
     {
@@ -41,6 +46,11 @@ class VehicleControllerTest {
         //TODO
     }
 
+    /**
+     * Test getAllVehicle() API
+     * If HTTP Response is OK(200), then it passes.
+     * @throws Exception the exception
+     */
     @Test
     void getAllVehicle() throws Exception
     {
@@ -49,6 +59,11 @@ class VehicleControllerTest {
                 .andReturn();
     }
 
+    /**
+     * Test getVehicleByModelName() API.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getVehicleByModelName() throws Exception
     {
@@ -57,12 +72,22 @@ class VehicleControllerTest {
                 .andReturn();
     }
 
+    /**
+     * Test getVehicleByPriceRange() API.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getVehicleByPriceRange() throws Exception
     {
         //TODO
     }
 
+    /**
+     * Gets vehicle by feature.
+     *
+     * @throws Exception the exception
+     */
     @Test
     void getVehicleByFeature() throws Exception
     {

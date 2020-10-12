@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class VehicleExceptionHandler {
-
     @ExceptionHandler
     public ResponseEntity<VehicleErrorResponse> handleException(VehicleNotFoundException ex){
         VehicleErrorResponse responseBody = new VehicleErrorResponse();

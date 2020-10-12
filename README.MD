@@ -9,7 +9,14 @@
 
 
 
-### How to run
-  The entire project is based on Spring boot, so just start the application from
+### How to use
+  The entire project is based on Spring boot, so just start the application from its Spring boot entry point.
+  For API details, just visit http://localhost:8080/swagger-ui.html after you started the application.
 
- For API Document, visit 
+### Tech Stack
+
+  Framework: Spring Boot
+  Database: MongoDB (with Spring Data JPA)
+  Unit testing: JUnit 5/MockMvc
+  API documentation: Swagger 2/Swagger 2 UI
+

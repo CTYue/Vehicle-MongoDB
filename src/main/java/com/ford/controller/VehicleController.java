@@ -18,6 +18,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * Main controller for required APIs.
+ */
 @EnableSwagger2
 @RestController
 public class VehicleController {
@@ -25,7 +28,13 @@ public class VehicleController {
     @Autowired
     private VehicleRepo vRepo;
 
-    //Q1: Post vehicle information
+    /**
+     * Post vehicle response entity.
+     *
+     * @param vehicle the vehicle
+     * @return the response entity with customized message.
+     */
+//Q1: Post vehicle information
     @PostMapping(value="/vehicleInformation/submitVehicle", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Post a vehicle entity to database using json.", response = ResponseEntity.class)
     public ResponseEntity<String> postVehicle(@ApiParam(value = "Vehicle entity to be posted.", required = true)
@@ -37,6 +46,11 @@ public class VehicleController {
            return new ResponseEntity<>("Vehicle submitted to the database successfully!", HttpStatus.OK);
     }
 
+    /**
+     * Gets all vehicles.
+     *
+     * @return all vehicle entities in the database.
+     */
     //Q2: Retrieve all entities from database
     @GetMapping(value = "/getVehicleInformation")
     @ApiOperation(value = "Get all vehicle information at one time.", response = List.class)
@@ -46,6 +60,12 @@ public class VehicleController {
         return vRepo.findAll();
     }
 
+    /**
+     * Gets vehicle by model name.
+     *
+     * @param modelName the model name
+     * @return all the vehicles with matching model name
+     */
     //Q3: Retrieve vehicle by modelName
     @GetMapping("/getVehicleModelName/{modelName}")
     @ApiOperation(value = "Find vehicles by its model name",
@@ -61,7 +81,14 @@ public class VehicleController {
             return vRepo.findByModel(modelName).get();
     }
 
-    //Q4: Retrieve vehicle by price range
+    /**
+     * Gets vehicle by price range.
+     *
+     * @param from the from
+     * @param to   the to
+     * @return the vehicle by price range
+     */
+//Q4: Retrieve vehicle by price range
     @GetMapping("/getVehiclePrice/{from}/{to}")
     @ApiOperation(value= "Find vehicles priced in given range.")
     public List<VehicleEntity> getVehicleByPriceRange(@ApiParam(value = "Starting price.", required = true)  @PathVariable String from,
@@ -71,7 +98,14 @@ public class VehicleController {
         return null;
     }
 
-    //Q5: Retrieve all vehicles contains matching Interior or Exterior features
+    /**
+     * Gets vehicle by feature.
+     *
+     * @param exterior the exterior
+     * @param interior the interior
+     * @return the vehicle by feature
+     */
+//Q5: Retrieve all vehicles contains matching Interior or Exterior features
     @GetMapping(value = "/getVehicleByFeatures/{exterior}/{interior}")
     @ApiOperation(value = "Find vehicles with exterior features and/or interior features.")
     public List<VehicleEntity> getVehicleByFeature(@ApiParam(value = "Exterior feature keyword.", required = true) @PathVariable String exterior,

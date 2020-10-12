@@ -15,6 +15,12 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
  */
 @ControllerAdvice
 public class VehicleExceptionHandler {
+    /**
+     * Bind VehicleNotFoundException with corresponding HTTP Error Response.
+     *
+     * @param ex
+     * @return the response entity
+     */
     @ExceptionHandler
     public ResponseEntity<VehicleErrorResponse> handleException(VehicleNotFoundException ex){
         VehicleErrorResponse responseBody = new VehicleErrorResponse();
@@ -26,6 +32,12 @@ public class VehicleExceptionHandler {
         return new ResponseEntity<>(responseBody, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Bind VehicleJsonFormatException with corresponding HTTP Error Response.
+     *
+     * @param ex the ex
+     * @return the response entity
+     */
     @ExceptionHandler
     public ResponseEntity<VehicleErrorResponse> handleException(VehicleJsonFormatException ex){
         VehicleErrorResponse responseBody = new VehicleErrorResponse();
@@ -37,6 +49,12 @@ public class VehicleExceptionHandler {
         return new ResponseEntity<>(responseBody, HttpStatus.NOT_FOUND);
     }
 
+    /**
+     * Bind other kind of exceptions with HTTP Error Response.
+     *
+     * @param ex the ex
+     * @return the response entity
+     */
     @ExceptionHandler
     public ResponseEntity<VehicleErrorResponse> handleException(RuntimeException ex){
         VehicleErrorResponse responseBody = new VehicleErrorResponse();

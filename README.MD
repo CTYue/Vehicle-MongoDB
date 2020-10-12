@@ -18,7 +18,7 @@
   Database: MongoDB (with Spring Data JPA)  
   Unit testing: JUnit 5/MockMvc  
   API documentation: Swagger 2/Swagger 2 UI  
-  Deploy container: Docker
+  Deploy container: Docker/Elastic BeanStalk
 
 ### Design Principles
   TODO

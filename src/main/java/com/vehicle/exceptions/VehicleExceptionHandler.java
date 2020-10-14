@@ -2,7 +2,7 @@
  * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
  */
 
-package com.ford.exceptions;
+package com.vehicle.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -2,7 +2,7 @@
  * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
  */
 
-package com.ford.exceptions;
+package com.vehicle.exceptions;
 
 /**
  * This class defines the format for vehicle error responses.

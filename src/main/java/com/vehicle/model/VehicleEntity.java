@@ -2,7 +2,7 @@
  * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
  */
 
-package com.ford.model;
+package com.vehicle.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

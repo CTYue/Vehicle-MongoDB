@@ -2,10 +2,10 @@
  * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
  */
 
-package com.ford.repository;
+package com.vehicle.repository;
 
 import java.util.*;
-import com.ford.model.VehicleEntity;
+import com.vehicle.model.VehicleEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 

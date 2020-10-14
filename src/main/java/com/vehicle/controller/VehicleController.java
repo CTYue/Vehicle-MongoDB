@@ -1,14 +1,14 @@
 /*
  * Copyright (c) 2020 [Z.D. Yu](http://github.com/CTYue)
  */
-package com.ford.controller;
+package com.vehicle.controller;
 
 import java.util.*;
 
-import com.ford.exceptions.VehicleJsonFormatException;
-import com.ford.exceptions.VehicleNotFoundException;
-import com.ford.model.VehicleEntity;
-import com.ford.repository.VehicleRepo;
+import com.vehicle.exceptions.VehicleJsonFormatException;
+import com.vehicle.exceptions.VehicleNotFoundException;
+import com.vehicle.model.VehicleEntity;
+import com.vehicle.repository.VehicleRepo;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
